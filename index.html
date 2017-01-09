@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>dell refurb</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="css/site.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"/>
+  </head>
+  <body>
+    <header><h1>dell refurb</h1></header>
+
+    <div id="container">
+        <form>
+            <fieldset>
+              <label></label>
+              <div class="categoryDropdown"></div>
+
+              <div id="products">
+
+              </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <footer></footer>
+  </body>
+
+  <script id="category-template" type="text/x-handlebars-template">
+    <select name="category">
+        <option value=''>Select category</option>    
+        {{#each categories}}
+            <option value='{{url safeName}}'>{{name}}</option>
+        {{/each}}
+    </select>
+  </script>
+
+  <script id="product-template" type="text/x-handlebars-template">
+      <table width="100%" id="productData">
+         <thead>
+           <tr role="row">
+              {{#each headers}}
+              
+                  <th>
+                    {{replacespaces value}}
+                  </th>
+            
+              {{/each}}
+            </tr>
+         </thead>
+         <tbody>
+        {{#each products}}
+          {{#if detail}}
+            <tr role="row">
+              {{#each detail}}
+                  <td>
+                    {{value}}
+                  </td>
+              {{/each}}
+            </tr>
+            {{/if}}
+        {{/each}}
+        </tbody>
+      </table>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+  
+  <script src="js/app.js"></script>
+</html>
